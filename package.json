@@ -1,0 +1,35 @@
+{
+  "name": "our-stories",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "stories:index": "node scripts/build-stories.mjs",
+    "maps:index": "node scripts/build-map-data.mjs",
+    "maps:verify": "npm run maps:index && node scripts/verify-map-data.mjs",
+    "places:init": "node scripts/create-place-folders.mjs",
+    "predev": "npm run maps:index && npm run stories:index",
+    "dev": "vite --host 0.0.0.0",
+    "prebuild": "npm run maps:index && npm run stories:index",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "preview:static": "node scripts/serve-preview.mjs"
+  },
+  "dependencies": {
+    "d3-geo": "^3.1.1",
+    "dompurify": "^3.4.18",
+    "lucide-react": "^0.468.0",
+    "marked": "^15.0.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2",
+    "world-countries": "^5.1.0"
+  },
+  "devDependencies": {
+    "@mapbox/geojson-rewind": "^0.6.0",
+    "china-map-geojson": "^1.0.4",
+    "cn-atlas": "^0.1.2",
+    "vite": "^6.1.0"
+  }
+}
